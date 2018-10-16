@@ -20,13 +20,14 @@ public class Main {
     public static void main(String[] args) {
         double a,b,c,parteRaiz,primeraSolucion,segundaSolucion;
         Scanner sc = new Scanner(System.in);
-        System.out.println("¡Hola!Vamos a realizar una ecuación de segundo grado.");
+        System.out.println("¡Hola!,vamos a realizar una ecuación de segundo grado.");
         System.out.print("Coeficiente A: ");
         a = validarNumero(sc);
         System.out.print("Coeficiente B: ");
         b = validarNumero(sc);
         System.out.print("Coeficiente C: ");
         c = validarNumero(sc);
+        sc.close();
         parteRaiz = calcularRaiz(a,b,c);
         if (parteRaiz <= 0){
             System.out.println("La ecuación no tiene soluciones reales.");
