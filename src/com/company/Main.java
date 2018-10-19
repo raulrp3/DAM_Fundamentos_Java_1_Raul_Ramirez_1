@@ -3,14 +3,28 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
-    public static double validarNumero(Scanner sc){
-        double numValidado;
-        while(!sc.hasNextDouble()){
-            System.out.print("¡Por favor introduce un número! ");
-            sc.next();
+    public static double validador(int opcion){
+        double validado = 0;
+        Scanner sc = new Scanner(System.in);
+        switch (opcion){
+            case  0:{
+                while(!sc.hasNextInt()){
+                    System.out.print("¡Por favor introduce un número entero! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
+            case 1:{
+                while(!sc.hasNextDouble()){
+                    System.out.print("¡Por favor introduce un número decimal! ");
+                    sc.next();
+                }
+                validado = sc.nextDouble();
+            }
+            break;
         }
-        numValidado = sc.nextDouble();
-        return numValidado;
+        return  validado;
     }
     public static double calcularRaiz(double a,double b,double c){
         double resultado;
@@ -18,15 +32,15 @@ public class Main {
         return resultado;
     }
     public static void main(String[] args) {
-        double a,b,c,parteRaiz,primeraSolucion,segundaSolucion;
+        double a = 0,b = 0,c = 0,parteRaiz,primeraSolucion,segundaSolucion;
         Scanner sc = new Scanner(System.in);
         System.out.println("¡Hola!,vamos a realizar una ecuación de segundo grado.");
         System.out.print("Coeficiente A: ");
-        a = validarNumero(sc);
+        a = validador(1);
         System.out.print("Coeficiente B: ");
-        b = validarNumero(sc);
+        b = validador(1);
         System.out.print("Coeficiente C: ");
-        c = validarNumero(sc);
+        c = validador(1);
         sc.close();
         parteRaiz = calcularRaiz(a,b,c);
         if (parteRaiz <= 0){
